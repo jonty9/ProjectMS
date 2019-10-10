@@ -3,6 +3,7 @@
 <head>
 	<title> My WEBSITE </title>
 	<link rel="stylesheet" type = "text/css" href = "assets/styles/style1.css">
+	<script type="text/javascript" src="assets/scripts/home.js"></script>
 </head>
 <body>
 		<header>
@@ -11,18 +12,48 @@
 					<img src = "https://s3-ap-southeast-2.amazonaws.com/assets-pickmyproject-vic-gov-au/production/2018/08/13/09/21/05/64d6deb4-9ece-465d-ba75-1509706f66ce/PickMyProject-white@2x.png">
 				</div>
 				<ul>
-					<li class= "active"><a href = "#"> Home </a></li>
-					<li><a href = "#"> About Us </a></li>
-					<li><a href = "#"> Contact </a></li>
-					<li><a href = "#"> Profile </a></li>
+					<li class= "active"><a href = "#" class="btn"> Home </a></li>
+					<li><a href = "#" class="btn"> About Us </a></li>
+					<li><a href = "#" class="btn"> Contact </a></li>
+					<li><a href = "#" class="btn"> Profile </a></li>
 				</ul>
 			</div>
 			<div class= "title">
 				<h2> LOOKING FOR PROJECTS ? </h2>
 			</div>
 			<div class= "button">
-				<a href= "#" class="btn"> SIGN UP </a>
-				<a href= "#" class="btn"> SIGN IN </a>
+				<a href= "#" class="btn" onclick="openForm(1)"> SIGN UP </a>
+				<a href= "#" class="btn" onclick="openForm(2)"> SIGN IN </a>
+			</div>
+			<div id="formLogin">
+				<form id="login" name="login" action="#" method="POST" class="form_container">
+					<label class="label_text">Email</label>
+					<input type="email" name="email" placeholder="Email" class="input"><br>
+					<label class="label_text">Password</label>
+					<input type="password" name="password" placeholder="password" class="input">
+					<button type="submit" class="btn" >Login!</button><br>
+					<button type="submit" class="btn" onclick="closeForm()">Cancel</button>
+				</form>
+			</div>
+				<div id="formSignup">
+				<form id="signup" name="signup" action="#" method="POST" class="form_container">
+					<label class="label_text">First Name</label>
+					<input type="text" name="fname" placeholder="First Name" class="input"><br>
+					<label class="label_text">Last Name</label>
+					<input type="text" name="lname" placeholder="Last Name" class="input"><br>
+					<select name="designation">
+						<option value="" selected="selected" hidden>Designation</option>
+						<option value="faculty">Faculty</option>
+						<option value="student">Student</option>
+					</select><br>
+					<label class="label_text">Email</label>
+					<input type="email" name="email" placeholder="Email" class="input"><br>
+					<label class="label_text">Password</label>
+					<input type="password" name="password" placeholder="password" class="input"><br>
+					<button type="submit" class="btn" >Login!</button><br>
+					<button type="submit" class="btn" onclick="closeForm()">Cancel</button>
+				</form>
+			</div>
 		</header>
 </body>
 </html>
