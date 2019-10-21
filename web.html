@@ -26,17 +26,17 @@
 				<a href= "#" class="btn" onclick="openForm(2)"> SIGN IN </a>
 			</div>
 			<div id="formLogin">
-				<form id="login" name="login" action="#" method="POST" class="form_container">
+				<form id="login" name="login" action="signin.php" method="POST" class="form_container">
 					<label class="label_text">Email</label>
 					<input type="email" name="email" placeholder="Email" class="input"><br>
 					<label class="label_text">Password</label>
 					<input type="password" name="password" placeholder="password" class="input">
 					<button type="submit" class="btn1" >Login!</button><br>
-					<button type="submit" class="btn1" onclick="closeForm()">Cancel</button>
+					<input type="button" name="cancel" value="cancel"class="btn1" onclick="closeForm()">
 				</form>
 			</div>
 				<div id="formSignup">
-				<form id="signup" name="signup" action="#" method="POST" class="form_container" >
+				<form id="signup" name="signup" action="signup.php" method="POST" class="form_container" >
 					<label class="label_text">First Name</label>
 					<input type="text" name="fname" id = "fname" placeholder="First Name" class="input"><br>
 					<span id="fnameerror" class="text-danger font-weight-bold"></span>
@@ -55,7 +55,7 @@
 					<input type="password" name="password" id = "password" placeholder="password" class="input"><br>
 					<span id="passwordeerror" class="text-danger font-weight-bold"></span>
 					<button type="submit" class="btn1" onclick="validation()">SIGN UP!</button><br>
-					<button type="submit" class="btn1" onclick="closeForm()">Cancel</button>
+					<input type="button" name="cancel" value="Cancel" class="btn1" onclick="closeForm()">
 				</form>
 			</div>
 		</header>

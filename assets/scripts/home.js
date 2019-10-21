@@ -20,7 +20,7 @@ function validation(){
 	
 	var fname_check = /^[A-Za-z. ]{3,30}$/;
 	var lname_check = /^[A-Za-z. ]{3,30}$/;
-	var passwordcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])/[a-zA-z0-9!@#$%^&*]{8,16}/;
+	var passwordcheck = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-z0-9!@#$%^&*]{8,16}/;
 	var email_check = /^[A-Za-z0-9_.]{3,}@[A-za-z]{3,}[.]{1}[A-za-z.]{2,6}$/;
 	
 	if(fname_check.test(fname)){
@@ -47,4 +47,5 @@ function validation(){
 		document.getElementById('passworderror').innerHTML ="** Password is Invalid";
 		return false;
 	}
+	
 }
