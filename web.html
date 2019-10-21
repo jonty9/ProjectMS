@@ -31,27 +31,31 @@
 					<input type="email" name="email" placeholder="Email" class="input"><br>
 					<label class="label_text">Password</label>
 					<input type="password" name="password" placeholder="password" class="input">
-					<button type="submit" class="btn" >Login!</button><br>
-					<button type="submit" class="btn" onclick="closeForm()">Cancel</button>
+					<button type="submit" class="btn1" >Login!</button><br>
+					<button type="submit" class="btn1" onclick="closeForm()">Cancel</button>
 				</form>
 			</div>
 				<div id="formSignup">
-				<form id="signup" name="signup" action="#" method="POST" class="form_container">
+				<form id="signup" name="signup" action="#" method="POST" class="form_container" >
 					<label class="label_text">First Name</label>
-					<input type="text" name="fname" placeholder="First Name" class="input"><br>
+					<input type="text" name="fname" id = "fname" placeholder="First Name" class="input"><br>
+					<span id="fnameerror" class="text-danger font-weight-bold"></span>
 					<label class="label_text">Last Name</label>
-					<input type="text" name="lname" placeholder="Last Name" class="input"><br>
+					<input type="text" name="lname" id = "lname" placeholder="Last Name" class="input"><br>
+					<span id="lnameerror" class="text-danger font-weight-bold"></span>
 					<select name="designation">
-						<option value="" selected="selected" hidden>Designation</option>
+						<option value="" selected="selected" id = "selected" hidden>Designation</option>
 						<option value="faculty">Faculty</option>
 						<option value="student">Student</option>
 					</select><br>
 					<label class="label_text">Email</label>
-					<input type="email" name="email" placeholder="Email" class="input"><br>
+					<input type="email" name="email" id = "email" placeholder="Email" class="input"><br>
+					<span id="emailerror" class="text-danger font-weight-bold"></span>
 					<label class="label_text">Password</label>
-					<input type="password" name="password" placeholder="password" class="input"><br>
-					<button type="submit" class="btn" >Login!</button><br>
-					<button type="submit" class="btn" onclick="closeForm()">Cancel</button>
+					<input type="password" name="password" id = "password" placeholder="password" class="input"><br>
+					<span id="passwordeerror" class="text-danger font-weight-bold"></span>
+					<button type="submit" class="btn1" onclick="validation()">SIGN UP!</button><br>
+					<button type="submit" class="btn1" onclick="closeForm()">Cancel</button>
 				</form>
 			</div>
 		</header>
