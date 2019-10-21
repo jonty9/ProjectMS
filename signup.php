@@ -24,9 +24,15 @@ $password = hash('md5',$_POST['password']);
 $inser_user =<<<_INSERT_
 INSERT INTO users(user_fname,user_lname,desig,email,password) VALUES ('$fname','$lname','$desig','$email','$password');
 _INSERT_;
+session_start();
+if(!mysqli_query($con,$inser_user)){
+	$_SESSION['failed'] = true;
+}else {
+	
+	$_SESSION['registered'] = true; 
+}
 
-mysqli_query($con,$inser_user);
 mysqli_close($con);
-
+header("Location: web.php");
 
 ?>
