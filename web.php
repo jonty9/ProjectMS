@@ -29,6 +29,9 @@ session_start()
 					}elseif(isset($_SESSION['failed'])){
 						echo "<h4 style='color:white'> UserAccount already exists! </h4><br>";
 					}
+					elseif (isset($_SESSION['logged_out'])) {
+						echo "<h4 style='color:white'> You have been logged out </h4><br>";
+					}
 					session_unset();
 					session_destroy();
 				 ?>

@@ -3,5 +3,7 @@
 	session_unset();
 
 	session_destroy();
-	echo "Logged Out";
+	session_start();
+	$_SESSION['logged_out'] = true;
+	header("Location: web.php");
 ?>

@@ -32,7 +32,7 @@ try {
 				if(isset($continue_url)) {
 					header("Location: $continue_url");
 				}else {
-					header("Location: logged.php");
+					header("Location: add.php");
 				
 			}
 		}else {

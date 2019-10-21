@@ -2,14 +2,17 @@
 function openForm(x){
 	if(x==1){
 	document.getElementById('formSignup').style.display = "block";
-	}else{	
+	}else if (x==2) {	
 	document.getElementById('formLogin').style.display = "block";
+	}else if (x==3) {
+	document.getElementById('search').style.display = "block";	
 	}
 }
 
 function closeForm() {
 	document.getElementById('formLogin').style.display = "none";
 	document.getElementById('formSignup').style.display = "none";
+	document.getElementById('search').style.display = "none";
 }
 
 function validation(){
