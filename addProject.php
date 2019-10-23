@@ -7,7 +7,7 @@ $team_name = $_POST['team_name'];
 $teacher_name = $_POST['teacher_name'];
 $total_mem = $_POST['total_num'];
 $domain = $_POST['domain'];
-
+$user_id = $_SESSION['logged_in_user'];
 
 	$create_table =<<<_QUERY_
 CREATE TABLE IF NOT EXISTS project (
@@ -17,15 +17,17 @@ CREATE TABLE IF NOT EXISTS project (
           teacher_name VARCHAR(25) NOT NULL,
           total_mem INT(10) NOT NULL,
           domain VARCHAR(30) NOT NULL,
-          file LONGBLOB);
+          file LONGBLOB,
+          user_id VARCHAR(40) NOT NULL,
+          FOREIGN KEY (user_id) REFERENCES users(email));
 _QUERY_;
 
 $con->query($create_table);
 
-
+echo $user_id;
 $stmt = $con->prepare(
-	"INSERT INTO project(p_name,team_name,teacher_name,total_mem,domain) VALUES(?,?,?,?,?)");
-$stmt->bind_param("sssis", $pname, $team_name, $teacher_name, $total_mem, $domain );
+	"INSERT INTO project(p_name,team_name,teacher_name,total_mem,domain,user_id) VALUES(?,?,?,?,?,?)");
+$stmt->bind_param("sssiss", $pname, $team_name, $teacher_name, $total_mem, $domain, $user_id );
  
 	if($stmt->execute()){
 		$_SESSION['status'] = "Project Submitted Successfully!!";

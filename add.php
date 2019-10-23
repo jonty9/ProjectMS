@@ -1,5 +1,6 @@
 <?php 
 	require 'logged.php';
+	require 'db.php';
  ?>
 
 <html>
@@ -24,20 +25,40 @@
 			<input type="text" name="teacher_name" placeholder="Teacher Name">
 			<input type="text" name="total_num" placeholder="Total members">
 			<select name="domain">
-				<option value="" selected="selected" id = "selected" hidden>Domain</option>
-				<option value="ML">ML</option>
-				<option value="AI">AI</option>
-				<option value="Cyber-Security">Cyber-Security</option>
-				<option value="Cloud Computing">Cloud-Computing</option>
-				<option value="Robotics">Robotics</option>
+			<option value="">Choose domain</option> 	
+			<?php  
+			$stmt=$con->prepare(
+				"SELECT domains from domainlist");
+			$stmt->execute();
+			$stmt->bind_result($domain);
+			while ($stmt->fetch()) {
+				# code...
+				$option=<<<_HTML_
+				<option value='$domain'>$domain</option>
+_HTML_;
+				echo $option;
+			}
+			$stmt->close();
+			$con->close();
+			 ?>
 			</select>
-			<!-- <input type="file" name="fileToUpload" id="fileToUpload">  -->
+			<!-- php 
+				if ($_SESSION['logged_in_user']=='admin') {
+					# code...
+					$button=<<<_HTML_
+<input type='text' name='newdomain' placeholder='Add Domain'>
+<input 
+				}
+			 ?> -->
+			<br>
+			<input type="file" name="fileToUpload" id="fileToUpload"><br> 
 			<button type="submit" class="mno">Click to add</button>
 		</div>
 		</form>
 		<div class="right-side">
-		<span class="xyz"> SEARCH FOR PROJECTS</span>
+		<span class="xyz"> SEARCH FOR PROJECTS</span><
 		<a href="search.php"><button class="mno"> Search </button></a>
+		<a href="edit.php"><button class="mno"> Edit </button></a>
 	</div>
 	<div class="or">OR</div></div>
 </body>

@@ -36,8 +36,8 @@ try {
 				
 			}
 		}else {
-				$error_msg = 'Wrong Username or password';
-			
+				$_SESSION['incorrect'] = true;
+				header("Location: web.php");
 		}
 	}
 
@@ -46,7 +46,7 @@ try {
 	$con->close();	
 if($error_msg){
 	echo  $error_msg;
-	echo "<br>Go to <a href='web.html'> login page </a>";
+	echo "<br>Go to <a href='web.php'> login page </a>";
 }
 }catch(Exception $e){
 	$error_msg = "Some error occured, please check Credentials or try later";

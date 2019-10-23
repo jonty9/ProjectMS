@@ -1,5 +1,5 @@
 <?<?php 
-session_start()
+session_start();
  ?>
 <!DOCTYPE html>
 <html>
@@ -28,6 +28,8 @@ session_start()
 						echo "<h4 style='color:white'> Registered successfully! </h4><br>";
 					}elseif(isset($_SESSION['failed'])){
 						echo "<h4 style='color:white'> UserAccount already exists! </h4><br>";
+					}elseif(isset($_SESSION['incorrect'])){
+						echo "<h4 style='color:white'> Wrong Username or Password </h4><br>";
 					}
 					elseif (isset($_SESSION['logged_out'])) {
 						echo "<h4 style='color:white'> You have been logged out </h4><br>";
@@ -41,36 +43,36 @@ session_start()
 				<a href= "#" class="btn" onclick="openForm(2)"> SIGN IN </a>
 			</div>
 			<div id="formLogin">
-				<form id="login" name="login" action="signin.php" method="POST" class="form_container">
+				<form id="login" align="center" name="login" action="signin.php" method="POST" class="form_container">
 					<label class="label_text">Email</label>
 					<input type="email" name="email" placeholder="Email" class="input"><br>
 					<label class="label_text">Password</label>
-					<input type="password" name="password" placeholder="password" class="input">
-					<button type="submit" class="btn1" >Login!</button><br>
-					<input type="button" name="cancel" value="cancel"class="btn1" onclick="closeForm()">
+					<input type="password" name="password" placeholder="password" class="input"><br>
+					<button type="submit" class="btn" >Login!</button>
+					<input type="button" name="cancel" value="cancel"class="btn" onclick="closeForm()">
 				</form>
 			</div>
 				<div id="formSignup">
-				<form id="signup" name="signup" action="signup.php" method="POST" class="form_container" >
+				<form id="signup" align="center" name="signup" action="signup.php" method="POST" class="form_container" >
 					<label class="label_text">First Name</label>
 					<input type="text" name="fname" id = "fname" placeholder="First Name" class="input"><br>
 					<span id="fnameerror" class="text-danger font-weight-bold"></span>
 					<label class="label_text">Last Name</label>
 					<input type="text" name="lname" id = "lname" placeholder="Last Name" class="input"><br>
 					<span id="lnameerror" class="text-danger font-weight-bold"></span>
-					<select name="designation">
-						<option value="" selected="selected" id = "selected" hidden>Designation</option>
-						<option value="faculty">Faculty</option>
-						<option value="student">Student</option>
-					</select><br>
 					<label class="label_text">Email</label>
 					<input type="email" name="email" id = "email" placeholder="Email" class="input"><br>
 					<span id="emailerror" class="text-danger font-weight-bold"></span>
 					<label class="label_text">Password</label>
 					<input type="password" name="password" id = "password" placeholder="password" class="input"><br>
 					<span id="passwordeerror" class="text-danger font-weight-bold"></span>
-					<button type="submit" class="btn1" onclick="validation()">SIGN UP!</button><br>
-					<input type="button" name="cancel" value="Cancel" class="btn1" onclick="closeForm()">
+					<select name="designation">
+						<option value="" selected="selected" id = "selected" hidden>Designation</option>
+						<option value="faculty">Faculty</option>
+						<option value="student">Student</option>
+					</select><br><br>
+					<button type="submit" class="btn" onclick="validation()">SIGN UP!</button>
+					<input type="button" name="cancel" value="Cancel" class="btn" onclick="closeForm()">
 				</form>
 			</div>
 		</header>
