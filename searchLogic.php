@@ -31,7 +31,7 @@ table {
 	color: #fff;
 }
 
- 	</style>>
+ 	</style>
  </head>
  <body>
  	<div id ="second">
@@ -56,12 +56,12 @@ table {
 	$query = '%'.$_GET['query'].'%';
 	$sort = $_GET['sort'];
 	$stmt = $con->prepare(
-	"SELECT p_name,team_name,teacher_name,total_mem,domain from project where p_name like ? or team_name like ? or teacher_name like ? or domain like ? ORDER BY $sort ASC");
+	"SELECT p_name,team_name,teacher_name,total_mem,domain,fileadd from project where p_name like ? or team_name like ? or teacher_name like ? or domain like ? ORDER BY $sort ASC");
 	$stmt->bind_param("ssss", $query, $query, $query, $query);
 	$stmt->execute();
-	$stmt->bind_result($pname,$team_name,$teacher_name,$total_mem,$domain);
+	$stmt->bind_result($pname,$team_name,$teacher_name,$total_mem,$domain,$fileadd);
 	$table=<<<_HTML_
-<TABLE BORDER='1'><TH>Project Name</TH><TH>Team Name</TH><TH>Teacher Name</TH><TH>Total Members</TH><TH>Domain</TH>
+<TABLE BORDER='1'><TH>Project Name</TH><TH>Team Name</TH><TH>Teacher Name</TH><TH>Total Members</TH><TH>Domain</TH><TH>File</th>
 _HTML_;
 		
 		echo $table;
@@ -71,6 +71,9 @@ _HTML_;
 	// 	if($_SESSION['logged_in_user']== $user_id){
 	// 		$userHtml= "<tr>"."<bu
 	// 	}
-		echo "<tr>"."<td>".$pname."</td>"."<td>".$team_name."</td>"."<td>".$teacher_name."</td>"."<td>".$total_mem."</td>"."<td>".$domain."</td>"."</tr>";
+		if(!isset($fileadd)){
+			$fileadd = "404.html";
+		}
+		echo "<tr>"."<td>".$pname."</td>"."<td>".$team_name."</td>"."<td>".$teacher_name."</td>"."<td>".$total_mem."</td>"."<td>".$domain."</td>"."<td>"."<a href='D:/reports/$fileadd' download='view'>View</a>"."</td>"."</tr>";
 	}
  ?>
